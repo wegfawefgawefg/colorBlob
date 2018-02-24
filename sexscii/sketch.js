@@ -43,7 +43,7 @@ function draw()
   push();
   translate( x, y );
   rotate( sin( millis() / 100 ) / 10 );
-  textSize( sin( millis() / 100 ) * 10 + 40 );
+  textSize( sin( millis() / 100 ) * 10 + 70 );
   textAlign( CENTER );
   text( anim[currentFrame], 0, 0 );
   pop();
