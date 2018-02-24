@@ -15,7 +15,7 @@ function setup()
   colorMode( HSB, 360, 100, 100, 1 );
 
   baseX = width / 2;
-  baseY = height / 4;
+  baseY = height / 3;
 }
 function draw()
 {
