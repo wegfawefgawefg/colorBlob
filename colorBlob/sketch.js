@@ -25,8 +25,6 @@ function draw()
   noStroke();
   fill( 255 );
   strokeWeight( 1 );
-
-  background( 233 );
   
   push();
   translate( baseX, height / 2 );
