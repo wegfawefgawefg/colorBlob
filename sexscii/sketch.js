@@ -25,6 +25,8 @@ function setup()
   createCanvas( windowWidth, windowHeight );
   frameRate( 1000 );
   noSmooth();
+  textAlign( CENTER );
+
 
   lastTime = millis();
 }
@@ -35,14 +37,13 @@ function draw()
   stroke( 0 );
   fill( 0 );
 
-  var x = width;
+  var x = width / 2;
   var y = height / 2;
 
   push();
   translate( x, y );
   rotate( sin( millis() / 100 ) / 10 );
   textSize( sin( millis() / 100 ) * 10 + 100 );
-  textAlign( CENTER );
   text( anim[currentFrame], 0, 0 );
   pop();
 
