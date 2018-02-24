@@ -27,7 +27,7 @@ function draw()
   strokeWeight( 1 );
   
   push();
-  translate( baseX, height / 2 );
+  translate( width/2, height / 2 );
   branch( firstBranchLength, 5 );
   pop();
 }
