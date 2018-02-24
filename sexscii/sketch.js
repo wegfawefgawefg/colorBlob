@@ -53,7 +53,7 @@ function draw()
   if( timer > frameDuration )
   {
     timer = 0
-
+ 
     //  check for on first frame and going backwards
     if( (currentFrame === 0) && (animDirection === -1) )
     {
