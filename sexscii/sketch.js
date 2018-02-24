@@ -35,7 +35,7 @@ function draw()
   stroke( 0 );
   fill( 0 );
 
-  var x = width / 2;
+  var x = width;
   var y = height / 2;
 
   push();
