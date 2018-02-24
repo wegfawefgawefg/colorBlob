@@ -15,9 +15,8 @@ function setup()
   colorMode( HSB, 360, 100, 100, 1 );
 
   baseX = width / 2;
-  baseY = 0;
+  baseY = height / 4;
 }
-
 function draw()
 {
   //background( 255 );
@@ -25,9 +24,9 @@ function draw()
   noStroke();
   fill( 255 );
   strokeWeight( 1 );
-  
+
   push();
-  translate( width/2, height / 2 );
+  translate( baseX, baseY );
   branch( firstBranchLength, 5 );
   pop();
 }
