@@ -1,7 +1,7 @@
 var baseX;
 var baseY;
 var branchLengthDecay = 0.9;
-var firstBranchLength = 100;
+var firstBranchLength = 50;
 
 var drawTime = 2000;
 
@@ -43,7 +43,7 @@ function branch( length, layer )
   translate( 0, length );
   if( layer === 1 )
   {
-    ellipse( 0, 0, 200, 200 );
+    ellipse( 0, 0, 100, 100 );
   }
 
   length = length * branchLengthDecay;
