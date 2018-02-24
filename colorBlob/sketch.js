@@ -7,7 +7,7 @@ var drawTime = 2000;
 
 function setup()
 {
-  createCanvas( 800, 1500 );
+  createCanvas( windowWidth, windowHeight );
   frameRate( 1000 );
   noSmooth();
 
