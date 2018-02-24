@@ -22,7 +22,7 @@ var timer = 0;
 
 function setup()
 {
-  createCanvas( windowWidth - 100, windowHeight - 100 );
+  createCanvas( windowWidth, windowHeight );
   frameRate( 1000 );
   noSmooth();
 
@@ -35,10 +35,8 @@ function draw()
   stroke( 0 );
   fill( 0 );
 
-  var x = width / 4;
-  var y = height / 4;
-  var textWidth = width / 2;
-  var textHeight = height / 2;
+  var x = width / 2;
+  var y = height / 2;
 
   push();
   translate( x, y );
