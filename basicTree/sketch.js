@@ -5,7 +5,7 @@ var baseY;
 
 function setup()
 {
-  createCanvas( windowWidth, windowHeight - 500 );
+  createCanvas( windowWidth, windowHeight );
   frameRate( 1000 );
   noSmooth();
 
