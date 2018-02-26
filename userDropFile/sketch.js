@@ -41,7 +41,7 @@ function modifyImage()
 {
 	userImage.loadPixels();
 	var randomPixelIndex = random( userImage.pixels.length );
-	consol.log( randomPixelIndex );
+	console.log( randomPixelIndex );
 	userImage.pixels[ randomPixelIndex ] = color( 0, 255, 0 );
 	userImage.updatePixels();
 }
