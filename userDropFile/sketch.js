@@ -40,6 +40,7 @@ function gotFile( file )
 function modifyImage()
 {
 	userImage.loadPixels();
-	userImage.pixels[ userImage.pixels.length / 2 ] = color( 0, 255, 0 );
+	var randomPixelIndex = random( userImage.pixels.length );
+	userImage.pixels[ randomPixelIndex ] = color( 0, 255, 0 );
 	userImage.updatePixels();
 }
