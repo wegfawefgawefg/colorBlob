@@ -52,16 +52,7 @@ function setup() {
 	createCanvas( windowWidth, windowHeight );
 	frameRate(1000);
 
-	for( var i = 0; i < numStopsigns; i++ )
-	{
-		var stopsign = new Stopsign( width, height );
-		stopsigns.push( stopsign );
-	}
-
-	//	sort signs from back to front
-	stopsigns.sort( function(a, b) { return a.distance - b.distance } );
-	stopsigns.reverse();
-
+	createAndSortStopsigns();
 }
 
 function draw()
@@ -84,4 +75,23 @@ function polygon(x, y, radius, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+function createAndSortStopsigns()
+{
+	stopsigns = [];
+	
+	for( var i = 0; i < numStopsigns; i++ )
+	{
+		var stopsign = new Stopsign( width, height );
+		stopsigns.push( stopsign );
+	}
+
+	//	sort signs from back to front
+	stopsigns.sort( function(a, b) { return a.distance - b.distance } );
+	stopsigns.reverse();
+}
+
+function touchEnded() {
+  createAndSortStopsigns();
 }
