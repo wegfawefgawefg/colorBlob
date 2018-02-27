@@ -15,8 +15,6 @@ function setup() {
 		};
 		walkers.push( walker );
 	}
-
-	pnoise.seed(Math.random());
 }
 
 function draw()
