@@ -14,7 +14,7 @@ function setup() {
 function draw()
 {
 	var waveHue = 220 + sin( millis() / 1000);
-	var saturation = 20 + map( averageHeight, 0, height, 100, 0 );
+	var saturation = 20 + map( averageHeight, 0, height, 50, 0 );
 	background( waveHue, 255, 255, 1 );
 	stroke( 210, saturation, 100, 1);
 	strokeWeight( columnWidth );
@@ -27,7 +27,7 @@ function draw()
 	{
 		var colX = i * columnWidth;
 		var noiseComponent = noise( colX / 4000  + timeComponent );
-		var colHeight = map( noiseComponent, 0, 1, 0, height ) + height / 4;
+		var colHeight = map( noiseComponent, 0, 1, 0, height * 0.75 ) + height / 4;
 		line( colX, 0, colX, colHeight );
 
 		totalHeights += colHeight;
@@ -47,7 +47,7 @@ function draw()
 		var lengthNoise = noise( i * 100 + cloudTimeComponent );
 		var cloudLength = map( lengthNoise, 0, 1, 0, width * 0.7 );
 		var heightNoise = noise( i * 1000 + 1000 + cloudTimeComponent );
-		var cloudHeight = averageHeight + map( heightNoise, 0, 1, -100, 100 ) + (cloudLength / 20) - (height * 0.5);
+		var cloudHeight = averageHeight - map( heightNoise, 0, 1, 0, height / 10 ) + (cloudLength / 20) - (height * 0.4) - 50;
 		var xPosNoise = noise( i * 1000 + 2000 + cloudTimeComponent  / 20);
 		var cloudXPos = map( xPosNoise, 0, 1, -width, width * 2 );
 		var cloudAlpha = map( cloudLength, 0, width * 0.7, 0.8, 0.3 );
