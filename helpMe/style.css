@@ -5,6 +5,7 @@ body
   overflow: hidden;
   color: white;
   background-color: black;
+  font-size: 0.9vw;
 }
 
 p.odd
