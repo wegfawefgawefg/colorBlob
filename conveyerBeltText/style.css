@@ -1,0 +1,84 @@
+body
+{
+  margin:0;
+  padding:0;
+  overflow: hidden;
+  color: green;
+  background-color: black;
+  font-size: 0.3vw;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+img
+{
+  bottom: 0%;
+  left: 1%;
+  width: 30%;
+  position: fixed;
+  filter: opacity(60%);
+}
+
+p
+{
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  position: relative;
+}
+
+p.p1
+{
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  position: relative;
+  margin-top: 1%;
+}
+
+
+p.p4
+{
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  position: relative;
+  padding: 1%;
+  margin: 1%;
+  border: 1%;
+}
+
+p.p5
+{
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  position: relative;
+  padding: 1%;
+  margin: 1%;
+  border: 1%;
+}
+
+p.p7
+{
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  position: relative;
+  padding: 1%;
+  margin: 1%;
+  border: 1%;
+}
+
+p.p9
+{
+  bottom: 25%;
+  left: 50%;
+  width: 50%;
+  position: relative;
+  padding: 1%;
+  margin: 1%;
+  border: 1%;
+
+  font-size: 0.9vw;
+
+}
