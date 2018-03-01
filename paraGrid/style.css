@@ -1,0 +1,25 @@
+body
+{
+  margin:0;
+  padding:0;
+  overflow: hidden;
+  color: pink;
+  background-color: black;
+  font-size: 10;
+  font-family: "Lucida Console", Monaco, monospace;
+  text-align: center;
+}
+
+img
+{
+  bottom: 20%;
+  left: 25%;
+  width: 50%;
+  position: fixed;
+  filter: opacity(60%);
+}
+
+p
+{
+    /* border-style: solid; */
+}
