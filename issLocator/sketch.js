@@ -15,7 +15,6 @@ var mapY;
 var mapWidth;
 var mapHeight;
 
-var mapImage;
 var earthTexture;
 
 var shorterDimension;
@@ -29,7 +28,6 @@ function preload()
   loadData();
   print( data );
 
-  mapImage = loadImage( 'UTM_WORLD.gif' );
   earthTexture = loadImage( 'earthERPLL.jpg' );
 }
 
@@ -60,15 +58,12 @@ function draw()
 {
   background( 0 );
   fill( 255 );
-  //stroke( 255 );
-  //strokeWeight( 1 );
-  //textSize( 20 );
 
   //  mouse rotation
-  var verticalRotNormalized = map( mouseY, 0, height, 0, 1 );
-  var horizontalRotNormalized = map( mouseX, 0, width, 1, 0 );
-  var mxRot = map( verticalRotNormalized, 0, 1, HALF_PI, -HALF_PI );
-  var myRot = map( horizontalRotNormalized, 0, 1, 0, TWO_PI );
+  // var verticalRotNormalized = map( mouseY, 0, height, 0, 1 );
+  // var horizontalRotNormalized = map( mouseX, 0, width, 1, 0 );
+  // var mxRot = map( verticalRotNormalized, 0, 1, HALF_PI, -HALF_PI );
+  // var myRot = map( horizontalRotNormalized, 0, 1, 0, TWO_PI );
 
   //  iss rotation
   var issNormalizedX = map( longitude, -180, 180, 1, 0 );
@@ -80,20 +75,18 @@ function draw()
   //  //   which is shorter height or width
   var shorterDimension = min( height, width );
   var earthRadius =  shorterDimension / 4;
-  stroke( 255 );
-  //fill( 218, 70, 50, 0.9 );
-  //noFill();
+
+  //  draw earth
   push();
+  stroke( 255 );
   translate( 0, 0 );
   rotateX( xRot );
   rotateY( yRot );
-
-  //translate( width / 2, height / 2 );
   texture( earthTexture );
   sphere( earthRadius );
-
   pop();
 
+  //  draw ISS
   push();
   noStroke();
   fill( 0, 100, 100, 1.0 );
@@ -107,6 +100,7 @@ function draw()
   translate( lineLength, -height / 8 );
   line( 0, 0, lineLength, 0 );
   translate( lineLength, 0 );
+
   //  draw the text
   context2d.background( 0 );
   context2d.fill( 255 );
@@ -172,10 +166,3 @@ function dealWithData2( data )
     astronaut3 = '';
   }
 }
-
-
-//TODO:
-//  map longitude and latitude to 0 and 1????
-//  draw the circles :!
-//  draw earth
-//  draw the iss
