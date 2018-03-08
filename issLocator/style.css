@@ -3,4 +3,35 @@ body
   margin:0;
   padding:0;
   overflow: hidden;
+  color: white;
+  font-size: 15pt;
+}
+
+
+div#readout
+{
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  outline-style: solid;
+  outline-color: red;
+  width: auto;
+  height: auto;
+}
+
+h3
+{
+  padding: 0;
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+
+p
+{
+  padding: 0;
+  margin: 0;
+  padding-left: 10%;
+  padding-bottom: 0%;
 }

@@ -23,22 +23,37 @@ var ellipseWidth;
 var context2d;
 var c2dDim;
 
+var longitudeP;
+var latitudeP;
+var astronaut1P;
+var astronaut2P;
+var astronaut3P;
+var readoutDiv;
+
 function preload()
 {
+  longitudeP    = select( '#longitude' );
+  latitudeP     = select( '#latitude' );
+  astronaut1P   = select( '#astronaut1' );
+  astronaut2P   = select( '#astronaut2' );
+  astronaut3P   = select( '#astronaut3' );
+  readoutDiv    = select( '#readout' );
+
   loadData();
   print( data );
 
-  earthTexture = loadImage( 'earthERPLL.jpg' );
+  earthTexture = loadImage( 'earthERPLLSmall.gif' );
 }
 
 function setup()
 {
   frameRate( 1000 );
-  createCanvas( windowWidth, windowHeight, WEBGL );
+  var canvas3D = createCanvas( windowWidth, windowHeight, WEBGL );
+  canvas3D.style( 'z-index', '-2' );
+  canvas3D.position( 0, 0 );
 
   setInterval( loadData, 2000 );
   colorMode( HSB, 360, 100, 100, 1 );
-
 
   //  //   which is shorter height or width
   shorterDimension = min( height, width );
@@ -96,31 +111,21 @@ function draw()
   stroke( 0, 100, 100, 1.0 );
   strokeWeight( 1 );
   var lineLength = shorterDimension / 10;
-  line( 0, 0, lineLength, -height / 8 );
+  line( 0, 0, -windowWidth, 0 );
   translate( lineLength, -height / 8 );
-  line( 0, 0, lineLength, 0 );
-  translate( lineLength, 0 );
+  pop();
 
-  //  draw the text
-  context2d.background( 0 );
-  context2d.fill( 255 );
-  context2d.textSize( 30 );
-  context2d.noStroke();
-  context2d.text( 'Internation Space Station', 20, 40 );
-  context2d.text( 'Longitude: ' + longitude, 50, 90 );
-  context2d.text( 'Latitude: ' + latitude, 50, 140 );
-  context2d.text( 'Some Astronauts', 20, 200 );
-  context2d.text( astronaut1, 50, 250 );
-  context2d.text( astronaut2, 50, 300 );
-  context2d.text( astronaut3, 50, 350 );
+  push();
+  var lineStartX = windowWidth / 10 + mouseX;
+  var lineStartY = windowHeight / 10;
+  var lineEndY = lineStartY;
+  var lineEndX = windowWidth / 5;
+  //resetMatrix();
+  translate( -windowWidth / 2, -windowHeight / 2 );
+  strokeWeight( 5 );
+  line( 0, windowHeight / 4, windowWidth / 10, windowHeight / 4 );
+  line( 3, windowHeight / 4, 3, windowHeight / 2 );
 
-  context2d.stroke( 255, 0, 0 );
-  context2d.line( 0, 0, 0, context2d.height );
-  context2d.strokeWeight( 5 );
-  context2d.line( 0, 0, 10, 0 );
-  context2d.line( 0, context2d.height, 10, context2d.height );
-  texture( context2d );
-  plane( lineLength );
   pop();
 }
 
@@ -135,7 +140,9 @@ function loadData()
 function dealWithData( data )
 {
   longitude = data.iss_position.longitude;
+  longitudeP.html( 'Longitude: ' + longitude );
   latitude = data.iss_position.latitude;
+  latitudeP.html( 'Latitude: ' + latitude );
 }
 
 //  distribute the data into variables
@@ -165,4 +172,8 @@ function dealWithData2( data )
   {
     astronaut3 = '';
   }
+
+  astronaut1P.html( astronaut1 );
+  astronaut2P.html( astronaut2 );
+  astronaut3P.html( astronaut3 );
 }
