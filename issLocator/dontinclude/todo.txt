@@ -1,0 +1,19 @@
+find nasa api for iss location
+
+get json from api
+
+map position of iss to screen width height long location
+
+
+
+
+add 3d,
+put sphere in center
+get transform going
+transform to iss location
+put iss sphere there
+list names of iss astronauts near isss?
+
+??? - do other space ships get shown??
+??? - are astronauts listed for those also?
+??? - ??? - may potentially have to wait a long time to answer these particular questions
