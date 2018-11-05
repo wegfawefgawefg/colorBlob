@@ -54,12 +54,6 @@ function setup() {
 	//ortho(-width, width, height, -height, 0)
 }
 
-
-function buggerCuck()
-{
-
-}
-
 function draw()
 {
 	noCursor()
