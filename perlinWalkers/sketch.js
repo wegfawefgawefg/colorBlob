@@ -12,9 +12,13 @@ function setup() {
 		var walker = {
 			x: random( width ),
 			y: random( height ),
+			dx: 0,
+			dy: 0
 		};
 		walkers.push( walker );
 	}
+
+	pnoise.seed(Math.random());
 }
 
 function draw()
@@ -26,7 +30,7 @@ function draw()
 	//	itterate through walkers
 	for( var i = 0; i < numWalkers; i++ )
 	{
-			//	step the walker
+			//	step the walkers velocity
 			t += i;
 			walkers[i].x += (noise( t ) - 0.468) * walkerStepSize;
 			walkers[i].y += (noise( t + 1000 ) - 0.468) * walkerStepSize;

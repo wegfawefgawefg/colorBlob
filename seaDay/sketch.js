@@ -30,7 +30,7 @@ function draw()
 		var colHeight = map( noiseComponent, 0, 1, 0, height * 0.75 ) + height / 4;
 		line( colX, 0, colX, colHeight );
 
-		totalHeights += colHeight;
+		totalHeights += colHeight;/
 	}
 
 	averageHeight = totalHeights / numColumns;

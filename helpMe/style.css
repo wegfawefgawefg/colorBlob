@@ -3,9 +3,6 @@ body
   margin:0;
   padding:0;
   overflow: hidden;
-  color: white;
-  background-color: black;
-  font-size: 0.9vw;
 }
 
 p.odd

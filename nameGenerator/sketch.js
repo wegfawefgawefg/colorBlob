@@ -15,7 +15,6 @@ function setup()
 {
   //  get handles for the input elements
   button_generateNewNames = select( '#button_generateNewNames' );
-  input_startsWithLetter = select( '#input_startsWithLetter' );
   slider_syllablesPerName = select( '#slider_syllablesPerName' );
 
   //  set the callbacks for the input elements
