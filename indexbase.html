@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DR Toys Index</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function searchFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('search');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("mainul");
+            li = ul.getElementsByTagName('li');
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="searchable_index">
+        <h1>DR Toys Index</h1>
+        <input type="text" id="search" onkeyup="searchFunction()" placeholder="filter toys...">
+        <ul id="mainul">
+            <!-- STATIC_INJECTION -->
+        </ul>
+    </div>
+</body>
+
+</html>
