@@ -7,18 +7,17 @@ function enumGenerator(...keys) {
 
 const Direction = Object.freeze(enumGenerator('Left', 'Right'));
 
-function spin_text(text, left_or_right) {
-  const amount = 1;
+function spin_text(text, left_or_right, speed = 1) {
   if (left_or_right === Direction.Left) {
     words = text.split('');
-    for (var t = 0; t < amount; t++) {
+    for (var t = 0; t < speed; t++) {
       words.push(words[0]);
       words.splice(0, 1);
     }
     return words.join('');
   } else if (left_or_right === Direction.Right) {
     words = text.split('');
-    for (var t = 0; t < amount; t++) {
+    for (var t = 0; t < speed; t++) {
       words.unshift(words[words.length - 1]);
       words.splice(words.length - 1, 1);
     }
@@ -29,7 +28,7 @@ function spin_text(text, left_or_right) {
 function update_text() {
   var ps = document.querySelectorAll('.spintext');
   ps.forEach(function (p) {
-    p.innerHTML = spin_text(p.innerHTML, Direction.Left);
+    p.innerHTML = spin_text(p.innerHTML, Direction.Left, 2);
   });
 
   var pcloser = document.getElementById('pcloser');
