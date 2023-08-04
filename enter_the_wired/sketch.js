@@ -1,11 +1,11 @@
-function enumGenerator(...keys) {
-  return keys.reduce((acc, key, index) => {
+const new_enum = function (...keys) {
+  return Object.freeze(keys.reduce((acc, key, index) => {
     acc[key] = index;
     return acc;
-  }, {});
+  }, {}));
 }
 
-const Direction = Object.freeze(enumGenerator('Left', 'Right'));
+const Direction = new_enum('Left', 'Right');
 
 function spin_text(text, left_or_right, speed = 1) {
   if (left_or_right === Direction.Left) {
