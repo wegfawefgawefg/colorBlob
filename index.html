@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DR Toys Index</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    function searchFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('search');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("mainul");
+      li = ul.getElementsByTagName('li');
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+
+</head>
+<body>
+<div id="searchable_index">
+  <h1>DR Toys Index</h1>
+  <input type="text" id="search" onkeyup="searchFunction()" placeholder="filter toys...">
+  <ul id="mainul">
+<li><a href="./basicTree/index.html">basicTree</a></li>
+<li><a href="./chairs/index.html">chairs</a></li>
+<li><a href="./color_blob/index.html">color_blob</a></li>
+<li><a href="./driveShip/index.html">driveShip</a></li>
+<li><a href="./enter_the_wired/index.html">enter_the_wired</a></li>
+<li><a href="./helpMe/index.html">helpMe</a></li>
+<li><a href="./issLocator/index.html">issLocator</a></li>
+<li><a href="./nameGenerator/index.html">nameGenerator</a></li>
+<li><a href="./paraGrid/index.html">paraGrid</a></li>
+<li><a href="./perlinWalkers/index.html">perlinWalkers</a></li>
+<li><a href="./punchMan/index.html">punchMan</a></li>
+<li><a href="./reposOptimization/index.html">reposOptimization</a></li>
+<li><a href="./seaDay/index.html">seaDay</a></li>
+<li><a href="./sexscii/index.html">sexscii</a></li>
+<li><a href="./sliderDance/index.html">sliderDance</a></li>
+<li><a href="./staticPerlinTravelers/index.html">staticPerlinTravelers</a></li>
+<li><a href="./stopsigns/index.html">stopsigns</a></li>
+<li><a href="./userDropFile/index.html">userDropFile</a></li>
+<li><a href="./velocityWalkers/index.html">velocityWalkers</a></li>
+<li><a href="./walkers/index.html">walkers</a></li>
+
+</ul>
+</div>
+</body>
+</html>

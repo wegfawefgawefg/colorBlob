@@ -1,0 +1,62 @@
+body {
+    background: url('background.gif') no-repeat center center fixed;
+    /* change size 50%*/
+    background-size: 70%;
+    background-color: black;
+    /* your existing styles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#searchable_index {
+    /* center */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border */
+    border: 1px solid #421c1c50;
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+    box-sizing: border-box;
+
+    /* the top should always be 20% from the screen top */
+    position: absolute;
+    top: 5%;
+
+    /* background color */
+
+    /* text color */
+    color: #d8b1b1;
+    /* clicked links color */
+    text-decoration: none;
+    /* set font to something old fashioned*/
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#search {
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    /* make the background grey */
+    background: #dbbeda url('searchicon.png') no-repeat 10px 10px;
+}
+
+#mainul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    /* set font */
+    font-family: Arial, Helvetica, sans-serif;
+    /* size */
+    font-size: 2em;
+}

@@ -5,31 +5,14 @@ html_string = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
-    <style>
-    #myInput {
-      background-image: url('/css/searchicon.png');
-      background-position: 10px 10px;
-      background-repeat: no-repeat;
-      width: 100%;
-      font-size: 16px;
-      padding: 12px 20px 12px 40px;
-      border: 1px solid #ddd;
-      margin-bottom: 12px;
-    }
-
-    #myUL {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    </style>
+    <title>DR Toys Index</title>
+    <link rel="stylesheet" href="style.css">
     <script>
     function searchFunction() {
       var input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById('myInput');
+      input = document.getElementById('search');
       filter = input.value.toUpperCase();
-      ul = document.getElementById("myUL");
+      ul = document.getElementById("mainul");
       li = ul.getElementsByTagName('li');
       for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
@@ -42,15 +25,19 @@ html_string = """
       }
     }
     </script>
+
 </head>
 <body>
-
-<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for links..">
-<ul id="myUL">
+<div id="searchable_index">
+  <h1>DR Toys Index</h1>
+  <input type="text" id="search" onkeyup="searchFunction()" placeholder="filter toys...">
+  <ul id="mainul">
 """
 
 # Walk through each directory and subdirectory in the current directory
 for subdir, dirs, files in os.walk("."):
+    dirs.sort()
+    files.sort()
     for file in files:
         # Check if the file is an index.html file
         if file == "index.html" and subdir != ".":
@@ -61,6 +48,7 @@ for subdir, dirs, files in os.walk("."):
 # Add the ending tags to the HTML string
 html_string += """
 </ul>
+</div>
 </body>
 </html>
 """
