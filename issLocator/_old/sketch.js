@@ -1,12 +1,18 @@
 // var dataURL = 'http://api.open-notify.org/iss-now.json';
 // a proxy server has been setup at https://toys.dickrippers.org/api_proxy_server/iss-now
-var iss_positions_api_url = 'https://toys.dickrippers.org/api_proxy_server/iss-now';
+var dataURL = 'https://toys.dickrippers.org/api_proxy_server/iss-now';
 // var data2URL = 'http://api.open-notify.org/astros.json';
 // a proxy server has been setup at https://toys.dickrippers.org/api_proxy_server/astros
-var iss_astronauts_api_url = 'https://toys.dickrippers.org/api_proxy_server/astros';
+var data2URL = 'https://toys.dickrippers.org/api_proxy_server/astros';
 
-var iss_positions_data;
-var iss_astronauts_data;
+
+
+var data;
+var data2;
+
+var astronaut1 = '';
+var astronaut2 = '';
+var astronaut3 = '';
 
 var longitude = 0;
 var latitude = 0;
@@ -26,23 +32,23 @@ var c2dDim;
 
 var longitudeP;
 var latitudeP;
-const readout = document.getElementById('readout');
+var astronaut1P;
+var astronaut2P;
+var astronaut3P;
+var readoutDiv;
 
 function preload() {
   longitudeP = select('#longitude');
   latitudeP = select('#latitude');
+  astronaut1P = select('#astronaut1');
+  astronaut2P = select('#astronaut2');
+  astronaut3P = select('#astronaut3');
+  readoutDiv = select('#readout');
 
-  update_iss_positions();
-  update_iss_astronauts();
+  loadData();
+  print(data);
+
   earthTexture = loadImage('earthERPLLSmall.gif');
-}
-
-function update_iss_positions() {
-  iss_positions_data = loadJSON(iss_positions_api_url, iss_pos_data_rcvd_callback);
-}
-
-function update_iss_astronauts() {
-  iss_astronauts_data = loadJSON(iss_astronauts_api_url, astronaut_data_rcvd_callback);
 }
 
 function setup() {
@@ -51,9 +57,7 @@ function setup() {
   canvas3D.style('z-index', '-2');
   canvas3D.position(0, 0);
 
-  setInterval(update_iss_positions, 2000);
-  setInterval(update_iss_astronauts, 10000);
-
+  setInterval(loadData, 2000);
   colorMode(HSB, 360, 100, 100, 1);
 
   //  //   which is shorter height or width
@@ -129,8 +133,16 @@ function draw() {
   pop();
 }
 
+//  function to load json data from api
+function loadData() {
+  // data = loadJSON(dataURL, dealWithData, 'jsonp');
+  // data2 = loadJSON(data2URL, dealWithData2, 'jsonp');
+  data = loadJSON(dataURL, dealWithData);
+  data2 = loadJSON(data2URL, dealWithData2);
+}
 
-function iss_pos_data_rcvd_callback(data) {
+//  distribute the data into variables
+function dealWithData(data) {
   longitude = data.iss_position.longitude;
   longitudeP.html('Longitude: ' + longitude);
   latitude = data.iss_position.latitude;
@@ -138,13 +150,27 @@ function iss_pos_data_rcvd_callback(data) {
 }
 
 //  distribute the data into variables
-function astronaut_data_rcvd_callback(data) {
-  astronaut_div = select('#astronauts');
-  astronaut_div.html('');
-  astronaut_div.children = [];
-  data.people.forEach((astronaut) => {
-    var p = createP(astronaut.name);
-    p.parent(astronaut_div);
-  });
+function dealWithData2(data) {
+  try {
+    astronaut1 = data.people[0].name;
+  }
+  catch (err) {
+    astronaut1 = '';
+  }
+  try {
+    astronaut2 = data.people[1].name;
+  }
+  catch (err) {
+    astronaut2 = '';
+  }
+  try {
+    astronaut3 = data.people[2].name;
+  }
+  catch (err) {
+    astronaut3 = '';
+  }
 
+  astronaut1P.html(astronaut1);
+  astronaut2P.html(astronaut2);
+  astronaut3P.html(astronaut3);
 }
