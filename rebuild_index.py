@@ -10,8 +10,6 @@ with open(base_file, "r") as f:
 
 # split at <!-- STATIC_INJECTION -->
 base_parts = base.split("<!-- STATIC_INJECTION -->")
-pprint(base_parts)
-print(len(base_parts))
 html = base_parts[0] + "\n"
 
 # Walk through each directory and subdirectory in the current directory
