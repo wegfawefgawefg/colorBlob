@@ -1,0 +1,3 @@
+get some tiles. 
+fill an array with an int for each tile
+render them out
